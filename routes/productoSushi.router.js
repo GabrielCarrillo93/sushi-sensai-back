@@ -5,8 +5,7 @@ const controller = require('../controllers/productoSushi.controller')
 
 router.get("/", controller.index);
 router.get("/:id", controller.show);
-router.post("/:id", controller.createProduct);
-router.post("/", controller.store);
+router.post("/", controller.createProduct);
 router.put("/:id", controller.update);
 router.delete("/:id", controller.destroy);
 
