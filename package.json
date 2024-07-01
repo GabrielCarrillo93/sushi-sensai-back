@@ -1,0 +1,22 @@
+{
+  "name": "back-sushi",
+  "version": "1.0.0",
+  "description": "Lista de productos Backend SushiSensai, Equipo N.º 13 CaC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "watch": "node --watch index.js"
+  },
+  "author": "Grupo_13_CaC",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.10.2",
+    "nodemon": "^3.1.4"
+  },
+  "keywords": []
+}
