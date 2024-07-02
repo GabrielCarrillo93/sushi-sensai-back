@@ -1,0 +1,25 @@
+{
+  "name": "sushi-sensai-front",
+  "version": "1.0.0",
+  "description": "Elaboración de página web para la práctica del curso Codo a Codo Comision 24129 Node Js.",
+  "main": "formulario.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nhayah/sushi-sensai-front.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nhayah/sushi-sensai-front/issues"
+  },
+  "homepage": "https://github.com/Nhayah/sushi-sensai-front#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mysql": "^2.18.1"
+  }
+}
