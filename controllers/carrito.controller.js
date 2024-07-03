@@ -47,15 +47,25 @@ const agregar = (req, res) => {
     })
 }
 
-const agregarProducto = (req, res) => {
-    const sql = "INSERT INTO lista_de_productos (id_carrito, id_catalogo) VALUES ( ?, ? )"
-    const {id, id_catalogo} = req.params
 
-    db.query(sql, [id, id_catalogo], (err, row) => {
+const agregarProducto = (req, res) => {
+    const {id, id_catalogo} = req.params
+    const sql = "SELECT * FROM catalogo RIGHT JOIN lista_de_productos ON idcatalogo = id_catalogo WHERE id_carrito = ?"
+    
+    db.query(sql, [id], (err, rows) => {
         if (err) {
-            return mostrarError(res, 500, {error: "Ha ocurrido un error. Intente nuevamente en unos minutos"})
+            return mostrarError(res, 500, {error: "Intente nuevamente"})
+        } else if (rows.filter((el) => el.idcatalogo == id_catalogo).length < 1){
+            const sql = "INSERT INTO lista_de_productos (id_carrito, id_catalogo) VALUES ( ?, ? )"
+            db.query(sql, [id, id_catalogo], (err, row) => {
+                        if (err) {
+                            return mostrarError(res, 500, {error: "Ha ocurrido un error. Intente nuevamente en unos minutos"})
+                        }
+                        res.status(201).json(row)
+                    })
+        } else {
+            return mostrarError(res, 404, {error: "Elemento duplicado"})
         }
-        res.status(201).json(row)
     })
 }
 
